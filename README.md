@@ -52,7 +52,7 @@ ToggleButton::make('enabled')
 
 ### ButtonGroup
 
-The Button group has the following options. For right now the default color for the selected button is primary. 
+The ButtonGroup has the following options. For right now the default color for the selected button is primary. 
 You may use `gridDirection()` to change the layout of the buttons. The options are `column` and `row`.
 
 ```php
