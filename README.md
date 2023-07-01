@@ -1,6 +1,6 @@
 # Filament Selectify
 
-A package featuring two exceptional components that serve as excellent alternatives to toggles, radio buttons, and other selectors. These components not only offer seamless user interactions but also maintain UI consistency by effortlessly aligning with neighboring fields and components.
+A package featuring two simple components that serve as excellent alternatives to toggles, radio buttons, and other selectors. These components not only offer seamless user interactions but also maintain UI consistency by effortlessly aligning with neighboring fields and components.
 
 ![ButtonGroup2](https://github.com/andrewdwallo/filament-selectify/assets/104294090/053194af-cc0f-471d-ab0d-c4b6753c49ae)
 ![ToggleButton](https://github.com/andrewdwallo/filament-selectify/assets/104294090/08f7439c-c20d-4d1b-b105-a71d08cc5c94)
