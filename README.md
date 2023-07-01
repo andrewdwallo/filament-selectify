@@ -62,7 +62,7 @@ ButtonGroup::make('entity')
         'company' => 'Company',
     ])
     ->gridDirection('column')
-    ->default('company'),
+    ->default('individual'),
 ```
 
 ![Screenshot 2023-06-30 224052](https://github.com/andrewdwallo/filament-selectify/assets/104294090/b04bf9ce-197a-4ea1-aa75-4fefa07c7f77)
