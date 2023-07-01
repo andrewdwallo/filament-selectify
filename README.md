@@ -33,7 +33,12 @@ php artisan vendor:publish --tag="filament-selectify-views"
 
 ## Usage
 
-**ToggleButton:**
+
+### ToggleButton
+
+The ToggleButton has the following options. You may also customize the color representing each state. 
+These may be either 'primary', 'secondary', 'success', 'warning' or 'danger':
+
 ```php
 ToggleButton::make('enabled')
     ->offColor('danger')
@@ -42,7 +47,14 @@ ToggleButton::make('enabled')
     ->onLabel('Yes'),
 ```
 
-**ButtonGroup:**
+![Screenshot 2023-06-30 225445](https://github.com/andrewdwallo/filament-selectify/assets/104294090/dc934b61-ecb4-485e-a4d8-9e46ba357d55)
+
+
+### ButtonGroup
+
+The Button group has the following options. For right now the default color for the selected button is primary. 
+You may use `gridDirection()` to change the layout of the buttons. The options are `column` and `row`.
+
 ```php
 ButtonGroup::make('entity')
     ->options([
@@ -52,6 +64,8 @@ ButtonGroup::make('entity')
     ->gridDirection('column')
     ->default('company'),
 ```
+
+![Screenshot 2023-06-30 224052](https://github.com/andrewdwallo/filament-selectify/assets/104294090/b04bf9ce-197a-4ea1-aa75-4fefa07c7f77)
 
 ## Changelog
 
