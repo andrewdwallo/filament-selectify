@@ -14,7 +14,7 @@ class ButtonGroup extends Field
     use HasGridDirection;
     use HasExtraAlpineAttributes;
 
-    protected string $view = 'components.button-group';
+    protected string $view = 'filament-selectify::components.button-group';
 
     protected bool|Closure|null $isOptionDisabled = null;
 

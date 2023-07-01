@@ -14,7 +14,7 @@ class ToggleButton extends Field
     use HasExtraAlpineAttributes;
     use HasToggleLabels;
 
-    protected string $view = 'components.toggle-button';
+    protected string $view = 'filament-selectify::components.toggle-button';
 
     protected function setUp(): void
     {
