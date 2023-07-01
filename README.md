@@ -1,19 +1,21 @@
-# This is my package filament-selectify
+# Filament Selectify
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/andrewdwallo/filament-selectify.svg?style=flat-square)](https://packagist.org/packages/andrewdwallo/filament-selectify)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/andrewdwallo/filament-selectify/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/andrewdwallo/filament-selectify/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/andrewdwallo/filament-selectify/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/andrewdwallo/filament-selectify/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/andrewdwallo/filament-selectify.svg?style=flat-square)](https://packagist.org/packages/andrewdwallo/filament-selectify)
+A game-changing package featuring two exceptional components that serve as excellent alternatives to toggles, radio buttons, and other selectors. These components not only offer seamless user interactions but also maintain UI consistency by effortlessly aligning with neighboring fields and components.
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+![ButtonGroup2](https://github.com/andrewdwallo/filament-selectify/assets/104294090/053194af-cc0f-471d-ab0d-c4b6753c49ae)
+![ToggleButton](https://github.com/andrewdwallo/filament-selectify/assets/104294090/08f7439c-c20d-4d1b-b105-a71d08cc5c94)
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/filament-selectify.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/filament-selectify)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+<p align="center">
+    <a href="https://filamentadmin.com/docs/2.x/admin/installation">
+        <img alt="FILAMENT 8.x" src="https://img.shields.io/badge/FILAMENT-2.x-EBB304?style=for-the-badge">
+    </a>
+    <a href="https://packagist.org/packages/andrewdwallo/filament-companies">
+        <img alt="Packagist" src="https://img.shields.io/packagist/v/andrewdwallo/filament-companies.svg?style=for-the-badge&logo=packagist">
+    </a>
+    <a href="https://packagist.org/packages/andrewdwallo/filament-companies">
+        <img alt="Downloads" src="https://img.shields.io/packagist/dt/andrewdwallo/filament-companies?color=red&style=for-the-badge" >
+    </a>
+</p>
 
 ## Installation
 
@@ -21,26 +23,6 @@ You can install the package via composer:
 
 ```bash
 composer require andrewdwallo/filament-selectify
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-selectify-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="filament-selectify-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
 ```
 
 Optionally, you can publish the views using
@@ -51,15 +33,24 @@ php artisan vendor:publish --tag="filament-selectify-views"
 
 ## Usage
 
+**ToggleButton:**
 ```php
-$filamentSelectify = new Wallo\FilamentSelectify();
-echo $filamentSelectify->echoPhrase('Hello, Wallo!');
+ToggleButton::make('enabled')
+    ->offColor('danger')
+    ->onColor('primary')
+    ->offLabel('No')
+    ->onLabel('Yes'),
 ```
 
-## Testing
-
-```bash
-composer test
+**ButtonGroup:**
+```php
+ButtonGroup::make('entity')
+    ->options([
+        'individual' => 'Individual',
+        'company' => 'Company',
+    ])
+    ->gridDirection('column')
+    ->default('company'),
 ```
 
 ## Changelog
