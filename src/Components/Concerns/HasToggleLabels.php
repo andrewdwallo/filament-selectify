@@ -49,9 +49,7 @@ trait HasToggleLabels
     {
         $offLabel = $this->evaluate($this->offLabel);
 
-        return (is_string($offLabel) && $this->shouldTranslateLabel) ?
-            __($offLabel) :
-            $offLabel;
+        return (is_string($offLabel) && $this->shouldTranslateLabel) ? __($offLabel) : $offLabel;
     }
 
     /**
@@ -61,9 +59,7 @@ trait HasToggleLabels
     {
         $onLabel = $this->evaluate($this->onLabel);
 
-        return (is_string($onLabel) && $this->shouldTranslateLabel) ?
-            __($onLabel) :
-            $onLabel;
+        return (is_string($onLabel) && $this->shouldTranslateLabel) ? __($onLabel) : $onLabel;
     }
 
     /**

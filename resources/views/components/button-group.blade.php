@@ -1,63 +1,84 @@
 @php
-    $gridDirection = $getGridDirection();
+    $id = $getId();
+    $gridDirection = $getGridDirection() ?? 'column';
+    $statePath = $getStatePath();
+    $isDisabled = $isDisabled();
+    $options = $getOptions();
+    $offColor = $getOffColor() ?? 'gray';
+    $onColor = $getOnColor() ?? 'primary';
 @endphp
 
 <x-dynamic-component
     :component="$getFieldWrapperView()"
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-action="$getHintAction()"
-    :hint-color="$getHintColor()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
+    :field="$field"
 >
     <div
+        @class([
+            'filament-companies-button-group',
+            'grid grid-flow-row grid-cols-2 gap-3' => $gridDirection === 'row',
+            'grid grid-flow-col grid-rows-2 gap-3' => $gridDirection === 'column',
+        ])
         x-data="{
-            state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $getStatePath() . '\')') }},
+            state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $statePath . '\')') }},
         }"
-        class="grid gap-3 {{ $gridDirection === 'column' ? 'grid-cols-2' : 'grid-rows-2' }}"
     >
-        @php
-            $isDisabled = $isDisabled();
-        @endphp
-
-        @foreach ($getOptions() as $value => $label)
+        @foreach ($options as $value => $label)
             @php
                 $shouldOptionBeDisabled = $isDisabled || $isOptionDisabled($value, $label);
             @endphp
 
             <label
-                for="{{ $getId() }}-{{ $value }}"
+                for="{{ $id }}-{{ $value }}"
                 x-on:click="state = '{{ $value }}'"
-                x-bind:class="{
-                    'text-sm text-gray-800 bg-white border-gray-300 hover:bg-gray-50 focus:ring-primary-600 focus:text-primary-600 focus:bg-primary-50 focus:border-primary-600 dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-600 dark:hover:border-gray-500 dark:text-gray-200 dark:focus:text-primary-400 dark:focus:border-primary-400 dark:focus:bg-gray-800': state !== '{{ $value }}',
-                    'text-sm text-white shadow focus:ring-white border-transparent bg-primary-600 hover:bg-primary-500 focus:bg-primary-700 focus:ring-offset-primary-700': state === '{{ $value }}',
-                }"
+                x-bind:class="
+                    state === '{{ $value }}'
+                        ? '{{
+                            match ($onColor) {
+                                'gray' => 'bg-white text-gray-950 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 ring-1 ring-gray-950/10 dark:ring-white/20',
+                                default => 'bg-custom-600 text-white hover:bg-custom-500 dark:bg-custom-500 dark:hover:bg-custom-400 focus:ring-custom-500/50 dark:focus:ring-custom-400/50',
+                            }
+                        }}'
+                        : '{{
+                            match ($offColor) {
+                                'gray' => 'bg-white text-gray-950 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 ring-1 ring-gray-950/10 dark:ring-white/20',
+                                default => 'bg-custom-600 text-white hover:bg-custom-500 dark:bg-custom-500 dark:hover:bg-custom-400 focus:ring-custom-500/50 dark:focus:ring-custom-400/50',
+                            }
+                        }}'
+                "
+                x-bind:style="
+                    state === '{{ $value }}'
+                        ? '{{ \Filament\Support\get_color_css_variables($onColor, shades: [600, 500, 400]) }}'
+                        : '{{ \Filament\Support\get_color_css_variables($offColor, shades: [600, 500, 400]) }}'
+                "
                 {{
                     $attributes
                     ->merge($getExtraAttributes())
                     ->class([
-                        'filament-companies-button-group inline-flex items-center justify-center gap-1 font-medium rounded-lg border transition-colors outline-none focus:ring-offset-2 focus:ring-2 focus:ring-inset dark:focus:ring-offset-0 min-h-[2.25rem] px-4 py-2.5',
+                        'filament-companies-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm',
                     ])
                 }}
                 {{ $getExtraAlpineAttributeBag() }}
             >
                 <input
                     type="radio"
-                    name="{{ $getId() }}"
-                    id="{{ $getId() }}-{{ $value }}"
+                    name="{{ $id }}"
+                    id="{{ $id }}-{{ $value }}"
                     value="{{ $value }}"
                     class="sr-only"
-                    aria-labelledby="{{ $getId() }}-{{ $value }}"
-                    {!! $shouldOptionBeDisabled ? 'disabled' : null !!}
+                    aria-labelledby="{{ $id }}-{{ $value }}"
+                    @disabled($shouldOptionBeDisabled)
                     wire:loading.attr="disabled"
                 />
+
                 {{ $label }}
             </label>
         @endforeach
     </div>
 </x-dynamic-component>
+
+
+
+
+
+
+

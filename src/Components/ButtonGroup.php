@@ -5,12 +5,14 @@ namespace Wallo\FilamentSelectify\Components;
 use Closure;
 use Filament\Forms\Components\Concerns\HasGridDirection;
 use Filament\Forms\Components\Concerns\HasOptions;
+use Filament\Forms\Components\Concerns\HasToggleColors;
 use Filament\Forms\Components\Field;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 
 class ButtonGroup extends Field
 {
     use HasOptions;
+    use HasToggleColors;
     use HasGridDirection;
     use HasExtraAlpineAttributes;
 
@@ -41,9 +43,6 @@ class ButtonGroup extends Field
             return false;
         }
 
-        return (bool) $this->evaluate($this->isOptionDisabled, [
-            'label' => $label,
-            'value' => $value,
-        ]);
+        return (bool) $this->evaluate($this->isOptionDisabled, compact('label', 'value'));
     }
 }
