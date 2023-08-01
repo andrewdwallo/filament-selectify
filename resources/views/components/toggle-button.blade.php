@@ -5,7 +5,7 @@
         $isDisabled = $isDisabled();
         $offLabel = $getOffLabel();
         $onLabel = $getOnLabel();
-        $offColor = $getOffColor() ?? 'gray';
+        $offColor = $getOffColor() ?? 'danger';
         $onColor = $getOnColor() ?? 'primary';
     @endphp
 
