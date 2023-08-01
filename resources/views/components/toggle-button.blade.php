@@ -15,17 +15,6 @@
                 state: $wire.{{ $applyStateBindingModifiers("entangle('{$statePath}')") }}
         }"
     >
-        <style>
-            .filament-selectify-toggle-button-on {
-                border-top-left-radius: 0.5rem;
-                border-bottom-left-radius: 0.5rem;
-            }
-
-            .filament-selectify-toggle-button-off {
-                border-top-right-radius: 0.5rem;
-                border-bottom-right-radius: 0.5rem;
-            }
-        </style>
         <label
             for="{{ $id }}-{{ $onLabel }}"
             x-on:click="state = true"
@@ -48,9 +37,7 @@
                 $attributes
                 ->merge($getExtraAttributes(), escape: false)
                 ->merge($getExtraAlpineAttributes(), escape: false)
-                ->class([
-                    'filament-selectify-toggle-button-on relative inline-block h-10 py-2 px-3 text-sm text-center transition-all cursor-pointer',
-                ])
+                ->class(['filament-selectify-toggle-button-on'])
             }}
         >
             {{ $onLabel }}
@@ -82,9 +69,7 @@
             {{
                 $attributes
                 ->merge($getExtraAttributes())
-                ->class([
-                    'filament-selectify-toggle-button-off relative inline-block h-10 py-2 px-3 text-sm text-center transition-all cursor-pointer',
-                ])
+                ->class(['filament-selectify-toggle-button-off'])
             }}
             {{ $getExtraAlpineAttributeBag() }}
         >
@@ -96,6 +81,39 @@
             />
         </label>
     </div>
+    <style>
+        .filament-selectify-toggle-button-on {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem;
+            padding-inline-start: 0.75rem;
+            padding-inline-end: 0.75rem;
+            text-align: center;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+        }
+
+        .filament-selectify-toggle-button-off {
+            position: relative;
+            display: inline-block;
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem;
+            padding-inline-start: 0.75rem;
+            padding-inline-end: 0.75rem;
+            text-align: center;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            border-top-right-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+    </style>
 </x-dynamic-component>
 
 
