@@ -37,7 +37,7 @@
                 $attributes
                 ->merge($getExtraAttributes(), escape: false)
                 ->merge($getExtraAlpineAttributes(), escape: false)
-                ->class(['filament-selectify-toggle-button-on'])
+                ->class(['selectify-toggle-on'])
             }}
         >
             {{ $onLabel }}
@@ -69,7 +69,7 @@
             {{
                 $attributes
                 ->merge($getExtraAttributes())
-                ->class(['filament-selectify-toggle-button-off'])
+                ->class(['selectify-toggle-off'])
             }}
             {{ $getExtraAlpineAttributeBag() }}
         >
@@ -82,7 +82,7 @@
         </label>
     </div>
     <style>
-        .filament-selectify-toggle-button-on {
+        .selectify-toggle-on {
             position: relative;
             display: inline-block;
             padding-top: 0.375rem;
@@ -90,7 +90,7 @@
             padding-inline-start: 0.75rem;
             padding-inline-end: 0.75rem;
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 1rem;
             line-height: 1.5rem;
             transition: all 0.2s ease-in-out;
             cursor: pointer;
@@ -98,7 +98,14 @@
             border-bottom-left-radius: 0.5rem;
         }
 
-        .filament-selectify-toggle-button-off {
+        @media (min-width: 640px) {
+            .selectify-toggle-on {
+                font-size: 0.875rem;
+                line-height: 1.5rem;
+            }
+        }
+
+        .selectify-toggle-off {
             position: relative;
             display: inline-block;
             padding-top: 0.375rem;
@@ -106,12 +113,19 @@
             padding-inline-start: 0.75rem;
             padding-inline-end: 0.75rem;
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 1rem;
             line-height: 1.5rem;
             transition: all 0.2s ease-in-out;
             cursor: pointer;
             border-top-right-radius: 0.5rem;
             border-bottom-right-radius: 0.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .selectify-toggle-off {
+                font-size: 0.875rem;
+                line-height: 1.5rem;
+            }
         }
     </style>
 </x-dynamic-component>
