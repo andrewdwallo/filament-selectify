@@ -14,7 +14,7 @@
 >
     <div
         @class([
-            'filament-companies-button-group',
+            'selectify-button-group-grid',
             'grid grid-flow-row grid-cols-2 gap-3' => $gridDirection === 'row',
             'grid grid-flow-col grid-rows-2 gap-3' => $gridDirection === 'column',
         ])
@@ -54,7 +54,7 @@
                     $attributes
                     ->merge($getExtraAttributes())
                     ->class([
-                        'filament-companies-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm',
+                        'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm',
                     ])
                 }}
                 {{ $getExtraAlpineAttributeBag() }}
