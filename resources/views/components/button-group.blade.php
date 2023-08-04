@@ -1,17 +1,14 @@
-@php
-    $id = $getId();
-    $gridDirection = $getGridDirection() ?? 'column';
-    $statePath = $getStatePath();
-    $isDisabled = $isDisabled();
-    $options = $getOptions();
-    $offColor = $getOffColor() ?? 'gray';
-    $onColor = $getOnColor() ?? 'primary';
-@endphp
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
+    @php
+        $id = $getId();
+        $gridDirection = $getGridDirection() ?? 'column';
+        $statePath = $getStatePath();
+        $isDisabled = $isDisabled();
+        $options = $getOptions();
+        $offColor = $getOffColor() ?? 'gray';
+        $onColor = $getOnColor() ?? 'primary';
+    @endphp
 
-<x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :field="$field"
->
     <div
         @class([
             'selectify-button-group-grid',
@@ -19,7 +16,7 @@
             'grid grid-flow-col grid-rows-2 gap-3' => $gridDirection === 'column',
         ])
         x-data="{
-            state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $statePath . '\')') }},
+            state: $wire.{{ $applyStateBindingModifiers("entangle('{$statePath}')") }}
         }"
     >
         @foreach ($options as $value => $label)

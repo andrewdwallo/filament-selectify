@@ -18,19 +18,24 @@ class ButtonGroup extends Field
 
     protected string $view = 'filament-selectify::components.button-group';
 
-    protected bool|Closure|null $isOptionDisabled = null;
+    protected bool | Closure | null $isOptionDisabled = null;
 
-    public function boolean(string|null $trueLabel = null, string|null $falseLabel = null): static
+    public function boolean(string | null $trueLabel = null, string | null $falseLabel = null): static
     {
         $this->options([
-            1 => $trueLabel ?? 'Yes',
-            0 => $falseLabel ?? 'No',
+            true => $trueLabel ?? 'Yes',
+            false => $falseLabel ?? 'No',
         ]);
 
         return $this;
     }
 
-    public function disableOptionWhen(bool|Closure $callback): static
+    public function default(mixed $state): static
+    {
+        return parent::default((string)$state);
+    }
+
+    public function disableOptionWhen(bool | Closure $callback): static
     {
         $this->isOptionDisabled = $callback;
 

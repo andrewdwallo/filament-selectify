@@ -10,12 +10,12 @@ trait HasToggleLabels
     /**
      * Label for the 'off' state.
      */
-    protected string|Htmlable|Closure|null $offLabel = 'No';
+    protected string | Htmlable | Closure | null $offLabel = 'No';
 
     /**
      * Label for the 'on' state.
      */
-    protected string|Htmlable|Closure|null $onLabel = 'Yes';
+    protected string | Htmlable | Closure | null $onLabel = 'Yes';
 
     /**
      * Whether or not to translate the label.
@@ -25,7 +25,7 @@ trait HasToggleLabels
     /**
      * Set the 'off' label.
      */
-    public function offLabel(string|Htmlable|Closure|null $label): static
+    public function offLabel(string | Htmlable | Closure | null $label): static
     {
         $this->offLabel = $label;
 
@@ -35,7 +35,7 @@ trait HasToggleLabels
     /**
      * Set the 'on' label.
      */
-    public function onLabel(string|Htmlable|Closure|null $label): static
+    public function onLabel(string | Htmlable | Closure | null $label): static
     {
         $this->onLabel = $label;
 
@@ -45,7 +45,7 @@ trait HasToggleLabels
     /**
      * Get the 'off' label.
      */
-    public function getOffLabel(): string|Htmlable|null
+    public function getOffLabel(): string | Htmlable | null
     {
         $offLabel = $this->evaluate($this->offLabel);
 
@@ -55,7 +55,7 @@ trait HasToggleLabels
     /**
      * Get the 'on' label.
      */
-    public function getOnLabel(): string|Htmlable|null
+    public function getOnLabel(): string | Htmlable | null
     {
         $onLabel = $this->evaluate($this->onLabel);
 
