@@ -43,8 +43,10 @@
             {{ $onLabel }}
             <input
                 type="radio"
-                x-model="state"
-                class="absolute left-0 opacity-0"
+                name="{{ $id }}"
+                id="{{ $id }}-{{ $onLabel }}"
+                value="true"
+                class="sr-only"
             />
         </label>
 
@@ -76,8 +78,10 @@
             {{ $offLabel }}
             <input
                 type="radio"
-                x-model="!state"
-                class="absolute left-0 opacity-0"
+                name="{{ $id }}"
+                id="{{ $id }}-{{ $offLabel }}"
+                value="false"
+                class="sr-only"
             />
         </label>
     </div>
