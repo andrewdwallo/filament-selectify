@@ -2,6 +2,18 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.1 - 2023-08-09
+
+### What's Changed
+
+- fix: browser console error for toggle-button.blade.php by @andrewdwallo in https://github.com/andrewdwallo/filament-selectify/pull/3
+
+### New Contributors
+
+- @andrewdwallo made their first contribution in https://github.com/andrewdwallo/filament-selectify/pull/3
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.0...v2.0.1
+
 ## v2.0.0 - 2023-08-04
 
 Filament v3 Support
