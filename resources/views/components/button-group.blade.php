@@ -1,12 +1,12 @@
 <x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
     @php
         $id = $getId();
-        $gridDirection = $getGridDirection() ?? 'column';
         $statePath = $getStatePath();
         $isDisabled = $isDisabled();
         $options = $getOptions();
         $offColor = $getOffColor() ?? 'gray';
         $onColor = $getOnColor() ?? 'primary';
+        $gridDirection = $getGridDirection() ?? 'column';
     @endphp
 
     <div
@@ -16,7 +16,12 @@
             'grid grid-flow-col grid-rows-2 gap-3' => $gridDirection === 'column',
         ])
         x-data="{
-            state: $wire.{{ $applyStateBindingModifiers("entangle('{$statePath}')") }}
+            state: $wire.{{ $applyStateBindingModifiers("entangle('{$statePath}')") }},
+            getColor(color) {
+                return color === 'gray'
+                    ? 'bg-white text-gray-950 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 ring-1 ring-gray-950/10 dark:ring-white/20'
+                    : 'bg-custom-600 text-white hover:bg-custom-500 dark:bg-custom-500 dark:hover:bg-custom-400 focus:ring-custom-500/50 dark:focus:ring-custom-400/50';
+            }
         }"
     >
         @foreach ($options as $value => $label)
@@ -29,18 +34,8 @@
                 x-on:click="state = '{{ $value }}'"
                 x-bind:class="
                     state === '{{ $value }}'
-                        ? '{{
-                            match ($onColor) {
-                                'gray' => 'bg-white text-gray-950 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 ring-1 ring-gray-950/10 dark:ring-white/20',
-                                default => 'bg-custom-600 text-white hover:bg-custom-500 dark:bg-custom-500 dark:hover:bg-custom-400 focus:ring-custom-500/50 dark:focus:ring-custom-400/50',
-                            }
-                        }}'
-                        : '{{
-                            match ($offColor) {
-                                'gray' => 'bg-white text-gray-950 hover:bg-gray-50 dark:bg-white/5 dark:text-white dark:hover:bg-white/10 ring-1 ring-gray-950/10 dark:ring-white/20',
-                                default => 'bg-custom-600 text-white hover:bg-custom-500 dark:bg-custom-500 dark:hover:bg-custom-400 focus:ring-custom-500/50 dark:focus:ring-custom-400/50',
-                            }
-                        }}'
+                        ? getColor('{{ $onColor }}')
+                        : getColor('{{ $offColor }}')
                 "
                 x-bind:style="
                     state === '{{ $value }}'
@@ -49,9 +44,11 @@
                 "
                 {{
                     $attributes
-                    ->merge($getExtraAttributes())
+                    ->merge($getExtraAttributes(), escape: false)
+                    ->merge($getExtraAlpineAttributes(), escape: false)
                     ->class([
-                        'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 disabled:pointer-events-none disabled:opacity-70 rounded-lg gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm',
+                        'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 rounded-lg gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm',
+                        'opacity-70 pointer-events-none' => $shouldOptionBeDisabled,
                     ])
                 }}
                 {{ $getExtraAlpineAttributeBag() }}
@@ -66,7 +63,6 @@
                     @disabled($shouldOptionBeDisabled)
                     wire:loading.attr="disabled"
                 />
-
                 {{ $label }}
             </label>
         @endforeach
