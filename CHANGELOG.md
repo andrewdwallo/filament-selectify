@@ -2,6 +2,14 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.2 - 2023-08-12
+
+### What's Changed
+
+- fix: disabled fields and refactor code by @andrewdwallo in https://github.com/andrewdwallo/filament-selectify/pull/4
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.1...v2.0.2
+
 ## v2.0.1 - 2023-08-09
 
 ### What's Changed
