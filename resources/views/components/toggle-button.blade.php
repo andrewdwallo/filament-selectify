@@ -8,8 +8,8 @@
         $onColor = $getOnColor() ?? 'primary';
         $offColor = $getOffColor() ?? 'danger';
         $buttons = [
-            'on' => [$onColor, $onLabel, 1],
-            'off' => [$offColor, $offLabel, 0]
+            'on' => [$onColor, $onLabel, true],
+            'off' => [$offColor, $offLabel, false]
         ];
     @endphp
 
@@ -22,7 +22,7 @@
         @foreach ($buttons as $key => [$color, $label, $value])
             <label
                 for="{{ $id }}-{{ $label }}"
-                x-on:click="state = {{ $value }}"
+                x-on:click="state = {{ $value ? 'true' : 'false' }}"
                 x-bind:class="
                     {{ $value ? 'state' : '!state' }}
                         ? '{{
