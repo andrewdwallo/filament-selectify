@@ -2,6 +2,14 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.3 - 2023-08-13
+
+### What's Changed
+
+- fix: boolean state of toggle-button.blade.php by @andrewdwallo in https://github.com/andrewdwallo/filament-selectify/pull/5
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.2...v2.0.3
+
 ## v2.0.2 - 2023-08-12
 
 ### What's Changed
