@@ -8,6 +8,8 @@
         $onColor = $getOnColor() ?? 'primary';
         $gridDirection = $getGridDirection() ?? 'column';
         $icons = $getIcons();
+        $iconPosition = $getIconPosition();
+        $iconSize = $getIconSize();
     @endphp
 
     <div
@@ -50,6 +52,8 @@
                     ->class([
                         'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 rounded-lg gap-1.5 px-3 py-2 text-sm flex shadow-sm',
                         'opacity-70 pointer-events-none' => $shouldOptionBeDisabled,
+                        'flex-row mr-1' => $iconPosition === \Filament\Support\Enums\IconPosition::Before || $iconPosition === 'before',
+                        'flex-row-reverse ml-1' => $iconPosition === \Filament\Support\Enums\IconPosition::After || $iconPosition === 'after',
                     ])
                 }}
                 {{ $getExtraAlpineAttributeBag() }}
@@ -67,7 +71,14 @@
                 @if (filled($icons))
                     <x-filament::icon
                         icon="{{ $icons[$value] }}"
-                        class="w-4 h-4 inline"
+                        @class([
+                            match ($iconSize) {
+                                \Filament\Support\Enums\IconSize::Small, 'sm' => 'h-4 w-4 mt-1',
+                                \Filament\Support\Enums\IconSize::Medium, 'md' => 'h-5 w-5 mt-0.5',
+                                \Filament\Support\Enums\IconSize::Large, 'lg' => 'h-6 w-6',
+                                default => $iconSize,
+                            },
+                        ])
                     />
                 @endif
                 {{ $label }}
