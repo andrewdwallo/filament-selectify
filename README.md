@@ -53,6 +53,7 @@ ToggleButton::make('enabled')
 ### ButtonGroup
 
 The ButtonGroup has the following options. You may customize the color representing each state. The `onColor()` represents the button or value that is selected and the `offColor()` represents the button or value that is not selected. You may use `gridDirection()` to change the layout of the buttons. The options are `column` and `row`. The default is `column`.
+You may optionally add icons for the buttons using `icons()` and supplying an array that contains the option values as keys and icon names as values. Icon position and size can be changed using `iconPosition()` (default: before) and `iconSize()` (default: Small).
 
 ```php
 ButtonGroup::make('entity')
@@ -63,7 +64,13 @@ ButtonGroup::make('entity')
     ->onColor('primary')
     ->offColor('gray')
     ->gridDirection('row')
-    ->default('individual'),
+    ->default('individual')
+    ->icons([
+        'individual' => 'heroicon-m-user',
+        'company' => 'heroicon-m-building-office', 
+    ])
+    ->iconPosition(\Filament\Support\Enums\IconPosition::After)
+    ->iconSize(Filament\Support\Enums\IconSize::Medium),
 ```
 
 ![Screenshot 2023-06-30 224052](https://github.com/andrewdwallo/filament-selectify/assets/104294090/b04bf9ce-197a-4ea1-aa75-4fefa07c7f77)
