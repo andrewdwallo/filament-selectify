@@ -20,6 +20,8 @@ class ButtonGroup extends Field
 
     protected bool | Closure | null $isOptionDisabled = null;
 
+    protected array $icons = [];
+
     public function boolean(string | null $trueLabel = null, string | null $falseLabel = null): static
     {
         $this->options([
@@ -49,5 +51,17 @@ class ButtonGroup extends Field
         }
 
         return (bool) $this->evaluate($this->isOptionDisabled, compact('label', 'value'));
+    }
+
+    public function icons(array $icons): static
+    {
+        $this->icons = $icons;
+
+        return $this;
+    }
+
+    public function getIcons(): array
+    {
+        return $this->icons;
     }
 }
