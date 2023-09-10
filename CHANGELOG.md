@@ -2,6 +2,18 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.4 - 2023-09-10
+
+### What's Changed
+
+- add ability to set icons for buttons in group by @josefbehr in https://github.com/andrewdwallo/filament-selectify/pull/7
+
+### New Contributors
+
+- @josefbehr made their first contribution in https://github.com/andrewdwallo/filament-selectify/pull/7
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.3...v2.0.4
+
 ## v2.0.3 - 2023-08-13
 
 ### What's Changed
