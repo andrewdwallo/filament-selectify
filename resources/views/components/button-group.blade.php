@@ -7,6 +7,9 @@
         $offColor = $getOffColor() ?? 'gray';
         $onColor = $getOnColor() ?? 'primary';
         $gridDirection = $getGridDirection() ?? 'column';
+        $icons = $getIcons();
+        $iconPosition = $getIconPosition();
+        $iconSize = $getIconSize();
     @endphp
 
     <div
@@ -47,8 +50,10 @@
                     ->merge($getExtraAttributes(), escape: false)
                     ->merge($getExtraAlpineAttributes(), escape: false)
                     ->class([
-                        'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 rounded-lg gap-1.5 px-3 py-2 text-sm inline-grid shadow-sm',
+                        'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 rounded-lg gap-1.5 px-3 py-2 text-sm flex shadow-sm',
                         'opacity-70 pointer-events-none' => $shouldOptionBeDisabled,
+                        'flex-row mr-1' => $iconPosition === \Filament\Support\Enums\IconPosition::Before || $iconPosition === 'before',
+                        'flex-row-reverse ml-1' => $iconPosition === \Filament\Support\Enums\IconPosition::After || $iconPosition === 'after',
                     ])
                 }}
                 {{ $getExtraAlpineAttributeBag() }}
@@ -63,15 +68,21 @@
                     @disabled($shouldOptionBeDisabled)
                     wire:loading.attr="disabled"
                 />
+                @if (filled($icons))
+                    <x-filament::icon
+                        icon="{{ $icons[$value] }}"
+                        @class([
+                            match ($iconSize) {
+                                \Filament\Support\Enums\IconSize::Small, 'sm' => 'h-4 w-4 mt-1',
+                                \Filament\Support\Enums\IconSize::Medium, 'md' => 'h-5 w-5 mt-0.5',
+                                \Filament\Support\Enums\IconSize::Large, 'lg' => 'h-6 w-6',
+                                default => $iconSize,
+                            },
+                        ])
+                    />
+                @endif
                 {{ $label }}
             </label>
         @endforeach
     </div>
 </x-dynamic-component>
-
-
-
-
-
-
-
