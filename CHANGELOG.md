@@ -2,6 +2,15 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.5 - 2023-09-12
+
+### What's Changed
+
+- Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/andrewdwallo/filament-selectify/pull/6
+- fix state by @andrewdwallo in https://github.com/andrewdwallo/filament-selectify/pull/8
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.4...v2.0.5
+
 ## v2.0.4 - 2023-09-10
 
 ### What's Changed
