@@ -36,12 +36,12 @@
                 for="{{ $id }}-{{ $value }}"
                 x-on:click="state = '{{ $value }}'"
                 x-bind:class="
-                    state === '{{ $value }}'
+                    state == '{{ $value }}'
                         ? getColor('{{ $onColor }}')
                         : getColor('{{ $offColor }}')
                 "
                 x-bind:style="
-                    state === '{{ $value }}'
+                    state == '{{ $value }}'
                         ? '{{ \Filament\Support\get_color_css_variables($onColor, shades: [600, 500, 400]) }}'
                         : '{{ \Filament\Support\get_color_css_variables($offColor, shades: [600, 500, 400]) }}'
                 "
