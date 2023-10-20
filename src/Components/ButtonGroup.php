@@ -38,11 +38,6 @@ class ButtonGroup extends Field
         return $this;
     }
 
-    public function default(mixed $state): static
-    {
-        return parent::default((string)$state);
-    }
-
     public function disableOptionWhen(bool | Closure $callback): static
     {
         $this->isOptionDisabled = $callback;
