@@ -18,11 +18,13 @@
         x-data="{
             state: $wire.{{ $applyStateBindingModifiers("entangle('{$statePath}')") }}
         }"
+        x-on:keydown.left="state = true"
+        x-on:keydown.right="state = false"
     >
         @foreach ($buttons as $key => [$color, $label, $value])
-            <label
-                for="{{ $id }}-{{ $label }}"
+            <button
                 x-on:click="state = {{ $value ? 'true' : 'false' }}"
+                x-bind:aria-pressed="state ? 'true' : 'false'"
                 x-bind:class="
                     {{ $value ? 'state' : '!state' }}
                         ? '{{
@@ -40,57 +42,25 @@
                 "
                 {{
                     $attributes
+                    ->merge([
+                        'id' => "{$id}-{$label}",
+                        'role' => 'button',
+                        'type' => 'button',
+                        'aria-label' => $label,
+                        'disabled' => $isDisabled,
+                        'wire:loading.attr' => 'disabled',
+                    ], escape: false)
                     ->merge($getExtraAttributes(), escape: false)
                     ->merge($getExtraAlpineAttributes(), escape: false)
                     ->class([
-                        'selectify-toggle-' . $key,
-                        'opacity-70 pointer-events-none' => $isDisabled,
+                        'relative inline-block outline-none cursor-pointer text-base sm:text-sm sm:leading-6 text-center ps-3 pe-3 py-1.5 transition-all duration-200 ease-in-out disabled:pointer-events-none disabled:opacity-70',
+                        'selectify-toggle-on rounded-s-lg' => $key === 'on',
+                        'selectify-toggle-off rounded-e-lg' => $key === 'off',
                     ])
                 }}
             >
                 {{ $label }}
-                <input
-                    type="radio"
-                    name="{{ $id }}"
-                    id="{{ $id }}-{{ $label }}"
-                    value="{{ $value }}"
-                    class="sr-only"
-                    @disabled($isDisabled)
-                    wire:loading.attr="disabled"
-                />
-            </label>
+            </button>
         @endforeach
     </div>
-    <style>
-        .selectify-toggle-on, .selectify-toggle-off {
-            cursor: pointer;
-            display: inline-block;
-            font-size: 1rem;
-            line-height: 1.5rem;
-            padding-bottom: 0.375rem;
-            padding-inline-end: 0.75rem;
-            padding-inline-start: 0.75rem;
-            padding-top: 0.375rem;
-            position: relative;
-            text-align: center;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .selectify-toggle-on {
-            border-bottom-left-radius: 0.5rem;
-            border-top-left-radius: 0.5rem;
-        }
-
-        .selectify-toggle-off {
-            border-bottom-right-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
-        }
-
-        @media (min-width: 640px) {
-            .selectify-toggle-on, .selectify-toggle-off {
-                font-size: 0.875rem;
-                line-height: 1.5rem;
-            }
-        }
-    </style>
 </x-dynamic-component>
