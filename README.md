@@ -31,6 +31,20 @@ Optionally, you can publish the views using
 php artisan vendor:publish --tag="filament-selectify-views"
 ```
 
+## Registering Styles
+
+In order for component styles to be processed, you must add this package's vendor directory into the content array of your `tailwind.config.js` file:
+```php
+export default {
+    content: [
+        './resources/**/*.blade.php',
+        './vendor/filament/**/*.blade.php',
+        './vendor/andrewdwallo/filament-selectify/resources/views/**/*.blade.php', // The package's vendor directory
+    ],
+    // ...
+}
+```
+
 ## Usage
 
 
