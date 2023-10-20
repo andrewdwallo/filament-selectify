@@ -2,6 +2,15 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.6 - 2023-10-20
+
+### What's Changed
+
+- Bump stefanzweifel/git-auto-commit-action from 4 to 5 by @dependabot in https://github.com/andrewdwallo/filament-selectify/pull/9
+- fix: RTL Design of toggle-button.blade.php by @andrewdwallo in https://github.com/andrewdwallo/filament-selectify/pull/11
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.5...v2.0.6
+
 ## v2.0.5 - 2023-09-12
 
 ### What's Changed
