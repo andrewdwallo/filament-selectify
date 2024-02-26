@@ -2,6 +2,14 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.7 - 2024-02-26
+
+### What's Changed
+
+* Adjust grid layout for better responsiveness by @andrewdwallo in https://github.com/andrewdwallo/filament-selectify/pull/16
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.6...v2.0.7
+
 ## v2.0.6 - 2023-10-20
 
 ### What's Changed
