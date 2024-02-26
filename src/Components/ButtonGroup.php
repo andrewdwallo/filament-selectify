@@ -13,10 +13,10 @@ use Filament\Support\Enums\IconSize;
 
 class ButtonGroup extends Field
 {
+    use HasExtraAlpineAttributes;
+    use HasGridDirection;
     use HasOptions;
     use HasToggleColors;
-    use HasGridDirection;
-    use HasExtraAlpineAttributes;
 
     protected string $view = 'filament-selectify::components.button-group';
 
@@ -28,7 +28,7 @@ class ButtonGroup extends Field
 
     protected IconSize | string | Closure | null $iconSize = null;
 
-    public function boolean(string | null $trueLabel = null, string | null $falseLabel = null): static
+    public function boolean(?string $trueLabel = null, ?string $falseLabel = null): static
     {
         $this->options([
             true => $trueLabel ?? 'Yes',
