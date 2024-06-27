@@ -2,6 +2,19 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.8 - 2024-06-27
+
+### What's Changed
+
+* Grid Direction Row Fix by @ronfuller in https://github.com/andrewdwallo/filament-selectify/pull/21
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/andrewdwallo/filament-selectify/pull/20
+
+### New Contributors
+
+* @ronfuller made their first contribution in https://github.com/andrewdwallo/filament-selectify/pull/21
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.7...v2.0.8
+
 ## v2.0.7 - 2024-02-26
 
 ### What's Changed
