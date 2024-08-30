@@ -50,7 +50,7 @@
                     ->merge($getExtraAttributes(), escape: false)
                     ->merge($getExtraAlpineAttributes(), escape: false)
                     ->class([
-                        'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 rounded-lg gap-1.5 px-3 py-2 text-sm flex shadow-sm',
+                        'selectify-button-group items-center justify-center font-semibold outline-none transition duration-75 focus:ring-2 rounded-lg gap-1.5 px-3 py-2 text-sm flex shadow-sm hover:cursor-pointer',
                         'opacity-70 pointer-events-none' => $shouldOptionBeDisabled,
                         'flex-row mr-1' => $iconPosition === \Filament\Support\Enums\IconPosition::Before || $iconPosition === 'before',
                         'flex-row-reverse ml-1' => $iconPosition === \Filament\Support\Enums\IconPosition::After || $iconPosition === 'after',
