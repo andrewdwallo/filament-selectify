@@ -2,6 +2,19 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v2.0.9 - 2024-09-10
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/andrewdwallo/filament-selectify/pull/22
+* Pointer when hovering by @martin-ro in https://github.com/andrewdwallo/filament-selectify/pull/23
+
+### New Contributors
+
+* @martin-ro made their first contribution in https://github.com/andrewdwallo/filament-selectify/pull/23
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.8...v2.0.9
+
 ## v2.0.8 - 2024-06-27
 
 ### What's Changed
