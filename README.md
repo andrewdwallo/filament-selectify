@@ -6,8 +6,8 @@ A small package featuring two simple components that serve as excellent alternat
 ![ToggleButton](https://github.com/andrewdwallo/filament-selectify/assets/104294090/08f7439c-c20d-4d1b-b105-a71d08cc5c94)
 
 <p align="center">
-    <a href="https://filamentadmin.com/docs/2.x/admin/installation">
-        <img alt="FILAMENT 8.x" src="https://img.shields.io/badge/FILAMENT-2.x-EBB304?style=for-the-badge">
+    <a href="https://filamentphp.com">
+        <img alt="FILAMENT 4.x" src="https://img.shields.io/badge/FILAMENT-4.x-EBB304?style=for-the-badge">
     </a>
     <a href="https://packagist.org/packages/andrewdwallo/filament-selectify">
         <img alt="Packagist" src="https://img.shields.io/packagist/v/andrewdwallo/filament-selectify.svg?style=for-the-badge&logo=packagist">
