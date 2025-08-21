@@ -2,6 +2,20 @@
 
 All notable changes to `filament-selectify` will be documented in this file.
 
+## v3.0.0 - 2025-08-21
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot[bot] in https://github.com/andrewdwallo/filament-selectify/pull/24
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/andrewdwallo/filament-selectify/pull/26
+* Filament v4 compatibility by @daikazu in https://github.com/andrewdwallo/filament-selectify/pull/29
+
+### New Contributors
+
+* @daikazu made their first contribution in https://github.com/andrewdwallo/filament-selectify/pull/29
+
+**Full Changelog**: https://github.com/andrewdwallo/filament-selectify/compare/v2.0.9...v3.0.0
+
 ## v2.0.9 - 2024-09-10
 
 ### What's Changed
